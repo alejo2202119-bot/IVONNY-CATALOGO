@@ -22,33 +22,34 @@
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{height:100%;}
   #view-portada{
-    margin:0; min-height:100vh; color:#fff; font-family:'Inter',sans-serif;
+    margin:0; height:100vh; height:100dvh; overflow:hidden; color:#fff; font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
     background:
       radial-gradient(ellipse 900px 620px at 6% -8%, rgba(255,255,255,.30), transparent 62%),
       radial-gradient(ellipse 760px 700px at 102% 108%, rgba(255,206,130,.40), transparent 60%),
       radial-gradient(ellipse 500px 500px at 96% -6%, rgba(255,255,255,.16), transparent 60%),
       linear-gradient(135deg, var(--pink-dark) 0%, var(--pink) 45%, var(--seam) 49.6%, var(--seam) 50.4%, var(--orange-dark) 55%, var(--orange) 100%);
-    display:flex; flex-direction:column; align-items:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
   }
- 
+
   .wp-main{
-    width:100%; max-width:600px;
-    padding:20px 20px 22px;
-    display:flex; flex-direction:column; align-items:center;
-    gap:12px;
+    width:100%; max-width:600px; max-height:100%;
+    padding:clamp(8px,2.6vh,28px) 20px;
+    box-sizing:border-box;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:clamp(6px,1.6vh,14px);
     text-align:center;
   }
 
   .eyebrow{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600;
+    font-family:'IBM Plex Mono',monospace; font-size:clamp(9px,1.6vh,11px); font-weight:600;
     letter-spacing:.12em; text-transform:uppercase; color:var(--white-70);
     margin:0;
   }
 
   .frame{
-    width:100%; max-width:420px;
-    overflow:hidden; border-radius:0;
+    width:min(280px, 34vh, 56vw);
+    overflow:hidden; border-radius:0; flex-shrink:0;
     box-shadow:var(--wp-shadow); border:3px solid #fff;
     background:var(--surface);
     animation:rise .55s cubic-bezier(.2,.8,.2,1) both;
@@ -60,7 +61,7 @@
 
   h1{
     font-family:'Archivo',sans-serif; font-weight:900;
-    font-size:38px;
+    font-size:clamp(22px,5vh,44px);
     line-height:1.03; letter-spacing:-.02em;
     margin:2px 0 0; color:#fff;
     text-wrap:balance;
@@ -71,22 +72,22 @@
 
   p.welcome-sub{
     font-family:'Archivo',sans-serif; font-weight:700;
-    font-size:14px; line-height:1.35; color:#fff;
+    font-size:clamp(12px,1.9vh,16px); line-height:1.35; color:#fff;
     max-width:32ch; margin:0;
   }
 
   p.lead{
-    font-size:12.5px; line-height:1.42; color:var(--white-90);
+    font-size:clamp(10.5px,1.6vh,14px); line-height:1.42; color:var(--white-90);
     max-width:36ch; margin:0;
   }
 
   .cta{
     display:inline-flex; align-items:center; gap:9px;
     background:#fff; color:var(--pink);
-    font-family:'Archivo',sans-serif; font-weight:800; font-size:15px;
-    padding:13px 28px; border-radius:13px;
+    font-family:'Archivo',sans-serif; font-weight:800; font-size:clamp(13px,1.9vh,16px);
+    padding:clamp(9px,1.8vh,15px) clamp(18px,4vw,32px); border-radius:13px;
     text-decoration:none;
-    margin-top:3px;
+    margin-top:3px; flex-shrink:0;
     box-shadow:0 12px 28px rgba(40,6,26,.32);
     transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
   }
@@ -97,18 +98,8 @@
   .cta:hover svg{ transform:translateX(3px); }
 
   .wp-foot{
-    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:clamp(8.5px,1.3vh,10.5px);
     color:var(--white-70); letter-spacing:.02em; flex-shrink:0;
-  }
-
-  @media (min-width:600px) and (min-height:760px){
-    .wp-main{padding:40px 24px 48px; gap:16px;}
-    .eyebrow{font-size:11px;}
-    h1{font-size:52px;}
-    p.welcome-sub{font-size:16px;}
-    p.lead{font-size:14px;}
-    .cta{font-size:16px; padding:15px 32px;}
-    .wp-foot{font-size:10.5px;}
   }
 
 
@@ -123,7 +114,8 @@
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html,body{margin:0; padding:0;}
-  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; padding-bottom:92px;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
+  #view-catalog{padding-bottom:92px;}
   .mono{font-family:'IBM Plex Mono',monospace;}
 
   /* ===== WORDMARK ===== */
@@ -279,7 +271,7 @@
   body.admin .photo{cursor:default;}
 
   @media(min-width:720px){
-    body{padding-bottom:0;}
+    #view-catalog{padding-bottom:0;}
     .admin-flag{flex-direction:row; align-items:center; justify-content:space-between;}
     body.admin{padding-top:52px; scroll-padding-top:52px;}
     main{max-width:1080px; margin:0 auto;}
