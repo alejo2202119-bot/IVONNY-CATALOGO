@@ -2,8 +2,7 @@
 
 Catálogo digital con buscador, carrito, modo edición y pedido por WhatsApp.
 
-- `index.html` — portada de bienvenida.
-- `catalogo.html` — catálogo de productos.
+- `index.html` — página única: portada de bienvenida y, al tocar "Ver catálogo", el catálogo de productos (todo en un solo archivo, un solo link).
 - `assets/banner.svg` — imagen principal (banner). Reemplázala por la imagen real de la empresa cuando esté disponible.
 
 ## Modo edición
